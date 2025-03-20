@@ -41,6 +41,6 @@ models:
     staging:
       +materialized: view
     transform:
-      +materialized: view  
+      +materialized: table  
     dwh:
       +materialized: incremental  
