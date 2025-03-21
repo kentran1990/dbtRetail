@@ -5,7 +5,6 @@ select
     C_CUSTKEY,
     C_NATIONKEY,
     C_PHONE,
-    C_MKTSEGMENT,
-    C_COMMENT
+    C_MKTSEGMENT
 
 from {{ source('pos','customer')}}
