@@ -41,9 +41,15 @@ models:
     staging:
       +materialized: view
       +schema: STG
+      +grants:
+        select: ['svc','dataadmin']
     transform:
       +materialized: table  
       +schema: TRF
+      +grants:
+        select: ['svc','dataadmin']
     dwh:
       +materialized: incremental  
       +schema: DWH
+      +grants:
+        select: ['svc','dataadmin']
