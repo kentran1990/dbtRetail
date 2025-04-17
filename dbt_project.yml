@@ -40,7 +40,10 @@ models:
     # Applies to all files under models/example/
     staging:
       +materialized: view
+      +schema: STG
     transform:
       +materialized: table  
+      +schema: TRF
     dwh:
       +materialized: incremental  
+      +schema: DWH
