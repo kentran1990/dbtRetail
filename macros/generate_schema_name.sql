@@ -2,7 +2,7 @@
 
     {%- set default_schema = target.schema -%}
 
-    {%- if target.name == 'production' -%}
+    {%- if target.name == 'Production' -%}
         {{ custom_schema_name | replace("DWH_", "") }}
 
     {%- else -%}
