@@ -42,14 +42,14 @@ models:
       +materialized: view
       +schema: STG
       +grants:
-        select: ['svc','dataadmin']
+        select: "{{ ['svc','dataadmin'] if target.name == 'Production' else ['svc'] }}"
     transform:
       +materialized: table  
       +schema: TRF
       +grants:
-        select: ['svc','dataadmin']
+        select: ['dataadmin']
     dwh:
       +materialized: incremental  
       +schema: DWH
       +grants:
-        select: ['svc','dataadmin']
+        select: ['dataadmin']

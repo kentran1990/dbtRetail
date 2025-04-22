@@ -1,3 +1,4 @@
+
 select
     C_NAME,
     C_ACCTBAL,
