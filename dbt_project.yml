@@ -41,9 +41,15 @@ models:
     staging:
       +materialized: view
       +schema: STG
+      +grants:
+        select: "{{ ['svc','dataadmin'] if target.name == 'Production' else ['svc'] }}"
     transform:
       +materialized: table  
       +schema: TRF
+      +grants:
+        select: ['dataadmin']
     dwh:
       +materialized: incremental  
       +schema: DWH
+      +grants:
+        select: ['dataadmin']
