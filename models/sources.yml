@@ -5,8 +5,16 @@ sources:
       description: This is a replica of the Postgres database used by our app
       database: raw
       schema: pos
+      freshness: # default freshness
+        warn_after: {count: 1, period: hour}
+        error_after: {count: 2, period: hour}
+        filter: UPDATED_DATETIME >= dateadd(day,1,current_timestamp) #add filter for performance if needed.
+      loaded_at_field: UPDATED_DATETIME
+
       tables:
           - name: customer
             description: One record per customer.
+            
           - name: orders
             description: One record per order. 
+            freshness: null # do not check freshness for this table
