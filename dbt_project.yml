@@ -43,13 +43,19 @@ models:
       +schema: STG
       +grants:
         select: "{{ ['svc','dataadmin'] if target.name == 'Production' else ['svc'] }}"
+      +on_schema_change: "append_new_columns"  
     transform:
       +materialized: table  
       +schema: TRF
+      +transient: false
       +grants:
         select: ['dataadmin']
     dwh:
       +materialized: incremental  
       +schema: DWH
+      +on_schema_change: "append_new_columns"  # ignore (default behaviour), fail, sync_all_columns
       +grants:
         select: ['dataadmin']
+
+vars:
+    var_common_daterange : '{{ env_var(''DBT_COMMON_DATERANGE'')}}'

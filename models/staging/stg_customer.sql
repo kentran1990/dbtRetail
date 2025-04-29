@@ -6,6 +6,7 @@ select
     C_CUSTKEY,
     C_NATIONKEY,
     C_PHONE,
-    C_MKTSEGMENT
+    C_MKTSEGMENT,
+    UPDATED_DATETIME
 
 from {{ source('pos','customer')}}
