@@ -58,4 +58,4 @@ models:
         select: ['dataadmin']
 
 vars:
-    var_common_daterange : '{{ env_var(''DBT_COMMON_DATERANGE'') }}'
+    var_common_daterange : '{{ env_var(''DBT_COMMON_DATERANGE'')}}'
