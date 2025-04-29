@@ -48,12 +48,14 @@ models:
       +materialized: table  
       +schema: TRF
       +transient: false
-      +on_schema_change: "append_new_columns"  # ignore (default behaviour), fail, sync_all_columns
       +grants:
         select: ['dataadmin']
     dwh:
       +materialized: incremental  
       +schema: DWH
-      +on_schema_change: "append_new_columns"  
+      +on_schema_change: "append_new_columns"  # ignore (default behaviour), fail, sync_all_columns
       +grants:
         select: ['dataadmin']
+
+vars:
+    var_common_daterange : '{{ env_var(''DBT_COMMON_DATERANGE'') }}'
