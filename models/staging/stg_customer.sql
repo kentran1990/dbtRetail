@@ -25,4 +25,5 @@ select
     UPDATED_DATETIME
 
 from {{ref('stg_customer_ephemeral')}}
+ where C_NAME <> 'AAAA'
 
