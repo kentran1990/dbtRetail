@@ -1,0 +1,1 @@
+{{ codegen.generate_source(schema_name= 'pos', database_name= 'raw') }}
