@@ -1,0 +1,5 @@
+version: 2
+data_tests:
+  - name: unsual_balance_customers
+    description: >
+      Customer with > 10k balance
