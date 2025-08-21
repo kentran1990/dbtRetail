@@ -5,3 +5,4 @@ models:
     #tests:
       #- dbt_utils.equal_rowcount:
           #compare_model: ref('stg_customer')
+     
