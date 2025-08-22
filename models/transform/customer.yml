@@ -1,0 +1,39 @@
+models:
+  - name: customer
+    description: ""
+    # required
+    config:
+      contract: {enforced: true}
+    columns:
+      - name: customeraccountbalance
+        data_type: number(12,3)
+        constraints:
+          - type: not_null
+          - type: check       # not supported -- will warn & skip
+            expression: "customeraccountbalance > 0"
+        description: >
+          line1
+          line2
+
+      - name: customeraddress
+        data_type: varchar
+        description: ""
+
+      - name: customerkey
+        data_type: number
+        constraints:
+          - type: not_null
+          - type: primary_key # not enforced  -- will warn & include
+          - type: check       # not supported -- will warn & skip
+            expression: "customerkey > 0"
+        data_tests:
+          - unique
+        description: ""
+
+      - name: customername
+        data_type: varchar
+        description: ""
+
+      - name: updated_datetime
+        data_type: timestamp_ltz
+        description: ""

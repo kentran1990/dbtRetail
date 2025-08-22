@@ -2,7 +2,7 @@
 
 select
     C_NAME,
-    C_ACCTBAL,
+    cast(C_ACCTBAL as number(15,5)) as C_ACCTBAL,
     C_ADDRESS,
     C_CUSTKEY,
     C_NATIONKEY,

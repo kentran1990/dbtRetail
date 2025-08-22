@@ -2,7 +2,7 @@
 
 select
     'ZZZ' as C_NAME,
-    NULL as C_ACCTBAL,
+    12345.2329 as C_ACCTBAL,
     'ABC' as C_ADDRESS,
     200000 as C_CUSTKEY,
     NULL as C_NATIONKEY,
