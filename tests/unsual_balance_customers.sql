@@ -5,6 +5,6 @@
 
 select CustomerName,
     sum(CustomerAccountBalance) CustomerAccountBalance
-from {{ref('dim_customer')}}
+from {{ref('customer')}}
 group by 1
-having sum(CustomerAccountBalance) > 1000
+having sum(CustomerAccountBalance) > 1000 

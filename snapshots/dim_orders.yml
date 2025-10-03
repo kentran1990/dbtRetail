@@ -1,0 +1,17 @@
+snapshots:
+  - name: dim_orders
+    relation: ref('orders')
+    description:  markdown_string
+    config: 
+      schema: dwh
+      strategy: timestamp
+      unique_key: OrderKey 
+      updated_at: UPDATED_DATETIME
+      snapshot_meta_column_names:
+        dbt_valid_from: 'sf_valid_from'
+        #dbt_valid_to: <string>
+        #dbt_scd_id: <string>
+        #dbt_updated_at: <string>
+        #dbt_is_deleted: <string>
+      dbt_valid_to_current: to_date('9999-12-31')
+      hard_deletes:  new_record

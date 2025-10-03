@@ -1,1 +1,1 @@
-{{ codegen.generate_source(schema_name= 'pos', database_name= 'raw') }}
+{{ codegen.generate_source(schema_name= 'pos',table_names = ["orders"], database_name= 'raw',generate_columns = true) }}
