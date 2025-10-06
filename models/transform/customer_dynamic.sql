@@ -4,8 +4,8 @@
     target_lag="1 days",
     snowflake_warehouse="COMPUTE_WH",
     refresh_mode="AUTO",
-    initialize="ON_CREATE" 
-
+    initialize="ON_CREATE" ,
+    enabled= false
 ) }}
 select
     C_ACCTBAL as CustomerAccountBalance,
