@@ -4,7 +4,7 @@ sources:
     - name: pos
       description: This is a replica of the Postgres database used by our app
       database: raw
-      schema: pos
+      #schema: pos
       freshness: # default freshness
         warn_after: {count: 999, period: day}
         error_after: {count: 9999, period: day}

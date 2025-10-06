@@ -10,6 +10,8 @@ models:
       - name: c_acctbal
         data_type: number(15,5)
         description: ""
+        data_tests:
+          - not_null
 
       - name: c_address
         data_type: varchar

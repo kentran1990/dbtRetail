@@ -1,31 +1,31 @@
-with source as (
+WITH SOURCE AS (
 
-    select * from {{ source('pos', 'lineitem') }}
+    SELECT * FROM {{ source('pos', 'lineitem') }}
 
 ),
 
-renamed as (
+RENAMED AS (
 
-    select
-        l_orderkey,
-        l_partkey,
-        l_suppkey,
-        l_linenumber,
-        l_quantity,
-        l_extendedprice,
-        l_discount,
-        l_tax,
-        l_returnflag,
-        l_linestatus,
-        l_shipdate,
-        l_commitdate,
-        l_receiptdate,
-        l_shipinstruct,
-        l_shipmode,
-        l_comment
+    SELECT
+        L_ORDERKEY,
+        L_PARTKEY,
+        L_SUPPKEY,
+        L_LINENUMBER,
+        L_QUANTITY,
+        L_EXTENDEDPRICE,
+        L_DISCOUNT,
+        L_TAX,
+        L_RETURNFLAG,
+        L_LINESTATUS,
+        L_SHIPDATE,
+        L_COMMITDATE,
+        L_RECEIPTDATE,
+        L_SHIPINSTRUCT,
+        L_SHIPMODE,
+        L_COMMENT
 
-    from source
+    FROM SOURCE
 
 )
 
-select * from renamed
+SELECT * FROM RENAMED

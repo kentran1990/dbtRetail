@@ -10,7 +10,8 @@ select
     C_MKTSEGMENT,
     UPDATED_DATETIME
 
-from {{ source('pos','customer')}}
+from {{ source('pos', 'customer') }}
+
 
 union all 
 
