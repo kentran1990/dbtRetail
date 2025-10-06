@@ -60,3 +60,6 @@ models:
 vars:
     var_common_fromdate : '{{ env_var(''DBT_COMMON_FROMDATE'')}}'
     var_common_todate : '{{ env_var(''DBT_COMMON_TODATE'')}}'
+    
+dbt-cloud: 
+    project-id: 70471823448143    
