@@ -1,11 +1,19 @@
 version: 2
 
 sources:
-  - name: pos
-    database: raw
-    tables:
-      - name: customer
-        columns:
+    - name: pos
+      description: This is a replica of the Postgres database used by our app
+      database: raw
+      #schema: pos
+      freshness: # default freshness
+        warn_after: {count: 999, period: day}
+        error_after: {count: 9999, period: day}
+        filter: UPDATED_DATETIME >= dateadd(day,1,current_timestamp) #add filter for performance if needed.
+      loaded_at_field: UPDATED_DATETIME
+
+      tables:
+        - name: customer
+          columns:
           - name: c_custkey
             data_type: number
           - name: c_name
@@ -23,10 +31,10 @@ sources:
           - name: c_comment
             data_type: varchar
           - name: updated_datetime
-            data_type: timestamp_ltz
+            data_type: timestamp_ntz
 
-      - name: lineitem
-        columns:
+        - name: lineitem
+          columns:
           - name: l_orderkey
             data_type: number
           - name: l_partkey
@@ -60,8 +68,8 @@ sources:
           - name: l_comment
             data_type: varchar
 
-      - name: nation
-        columns:
+        - name: nation
+          columns:
           - name: n_nationkey
             data_type: number
           - name: n_name
@@ -71,8 +79,8 @@ sources:
           - name: n_comment
             data_type: varchar
 
-      - name: orders
-        columns:
+        - name: orders
+          columns:
           - name: o_orderkey
             data_type: number
           - name: o_custkey
@@ -91,11 +99,10 @@ sources:
             data_type: number
           - name: o_comment
             data_type: varchar
-          - name: updated_datetime
-            data_type: timestamp_ltz
+          freshness: null # do not check freshness for this table  
 
-      - name: part
-        columns:
+        - name: part
+          columns:
           - name: p_partkey
             data_type: number
           - name: p_name
@@ -115,8 +122,8 @@ sources:
           - name: p_comment
             data_type: varchar
 
-      - name: partsupp
-        columns:
+        - name: partsupp
+          columns:
           - name: ps_partkey
             data_type: number
           - name: ps_suppkey
@@ -126,5 +133,5 @@ sources:
           - name: ps_supplycost
             data_type: number
           - name: ps_comment
-            data_type: varchar
-
+            data_type: varchar 
+            
