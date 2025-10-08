@@ -3,6 +3,12 @@ version: 2
 sources:
   - name: pos
     database: raw
+    freshness: # default freshness
+        warn_after: {count: 999, period: day}
+        error_after: {count: 9999, period: day}
+        filter: UPDATED_DATETIME >= dateadd(day,1,current_timestamp) #add filter for performance if needed.
+    loaded_at_field: UPDATED_DATETIME
+
     tables:
       - name: customer
         columns:
@@ -93,6 +99,7 @@ sources:
             data_type: varchar
           - name: updated_datetime
             data_type: timestamp_ltz
+        freshness: null # do not check freshness for this table  
 
       - name: part
         columns:
