@@ -1,0 +1,38 @@
+﻿version: 2
+
+models:
+  - name: stg_customer_2
+    description: ""
+    columns:
+      - name: c_name
+        data_type: varchar
+        description: ""
+
+      - name: c_acctbal
+        data_type: number
+        description: ""
+
+      - name: c_address
+        data_type: varchar
+        description: ""
+
+      - name: c_custkey
+        data_type: number
+        description: ""
+
+      - name: c_nationkey
+        data_type: varchar
+        description: ""
+
+      - name: c_phone
+        data_type: varchar
+        description: ""
+
+      - name: c_mktsegment
+        data_type: varchar
+        description: ""
+
+      - name: updated_datetime
+        data_type: timestamp_ntz
+        description: ""
+
